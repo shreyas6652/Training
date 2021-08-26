@@ -7,6 +7,7 @@ import HoverCounter from './component/Counter/HoverCounter';
 import HookForm from './component/Form/HookForm';
 import Count from './component/Counter/Count';
 import { BrowserRouter,Route, Switch} from 'react-router-dom';
+import TableForm from './component/Table/TableForm';
 import React from 'react';
 function App() {
 
@@ -15,7 +16,7 @@ function App() {
  <React.Fragment>
 
    <BrowserRouter>
- 
+ <TableForm ></TableForm>
    <Switch>
    <Route path='/clock' component={Clock}></Route>
    <Route path='/count' component={Count}></Route>
