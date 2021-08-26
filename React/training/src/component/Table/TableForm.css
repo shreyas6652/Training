@@ -1,0 +1,9 @@
+
+img {
+    float: center;
+    height: 21px;
+    width: 22px;
+    border: 1px solid #ddd;
+    border-left: none;
+    margin: -5px 0px 0px -30px;
+}
