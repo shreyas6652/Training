@@ -8,6 +8,7 @@ class Clock extends Component {
         time:moment().format("DD-MM-YYYY hh:mm:ss"),
         isClockStart:true,
       }
+    
       //Lifecycle after render
       componentDidMount()
       {
@@ -39,7 +40,7 @@ class Clock extends Component {
               <center>
               <div class="time">
      <h1>
-            Tick Clock
+            Tick Clock Using Class
          </h1>
  
     <h3>{this.state.time}</h3>
@@ -50,7 +51,8 @@ class Clock extends Component {
   <Button variant="primary" onClick={()=>{this.startTimer()}}>Start Clock</Button>
     }
             </center>
-
+            <br></br>
+            
             </div>
         );
     }

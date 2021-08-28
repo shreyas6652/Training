@@ -10,6 +10,8 @@ import TableForm from './component/Table/TableForm';
 import React from 'react';
 import Planner from './component/Planner/Planner';
 import Menu from './component/menubar'
+import FunctionalClock from './component/Timer/FunctionalClock';
+import Clocks from './component/Timer/Clocks';
 
 function App() {
 
@@ -26,6 +28,8 @@ function App() {
     <Route path="/table" component={TableForm}></Route>
     <Route path='/update/' component={UpdateForm}></Route>
     <Route path='/todo' component={Planner}></Route>
+    <Route path='/clockmethod' component={FunctionalClock}></Route>
+    <Route path="/clocks" component={Clocks}></Route>
    </Switch>
    </BrowserRouter>
   

@@ -42,9 +42,10 @@ export class UpdateForm extends Component {
         return (
             <div>
                 
-                <h1>Update the table</h1>
+                
                 
     <div style={{margin:"1% 30% 0% 30%"}} > 
+    <h1 style={{color:"orange"}}>Update the table</h1>
   <div class="form-group" >
  
     <input type="text" value={this.state.Name} onChange={(e)=>{this.changeName(e.target.value)}} class="form-control" aria-describedby="emailHelp" placeholder="Name" id="Name" required></input> <br></br>

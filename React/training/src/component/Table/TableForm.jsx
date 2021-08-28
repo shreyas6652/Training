@@ -9,12 +9,13 @@ export class TableForm extends Component {
         sno:1,
         Name:'',
         Age:'',
-        Mobile:''
+        Mobile:'',
+        Loading:false
     }
     async componentDidMount(){
         var res;
         res=await axios.get("https://tablereactapp.herokuapp.com/api/info")
-        this.setState({info:res.data,tempinfo:res.data})
+        this.setState({info:res.data,tempinfo:res.data,Loading:true})
        
 
     }
@@ -40,7 +41,6 @@ export class TableForm extends Component {
         if(this.state.Name&&this.state.Age&&this.state.Mobile)
            {
            var res=await axios.post('https://tablereactapp.herokuapp.com/api/info',info)
-           console.log(res)
            alert("Data Added")
            this.setState({Name:'',Age:'',Mobile:''})
            res=await axios.get("https://tablereactapp.herokuapp.com/api/info")
@@ -61,9 +61,7 @@ export class TableForm extends Component {
       {
         var res=this.state.tempinfo[itr]
         var LowRes=res.Name.toLowerCase()
-        console.log(e)
-        console.log(LowRes)
-        console.log(LowRes.includes(e))
+     
         
         if(LowRes.includes(e))
         {
@@ -80,7 +78,7 @@ export class TableForm extends Component {
           filteredlist.push(res)      
         }
       }
-      console.log(filteredlist)
+     
       this.setState({info:filteredlist})
     }
     changeName(event){
@@ -97,7 +95,12 @@ export class TableForm extends Component {
     
         return (
             <div>
-
+ {!this.state.Loading ?
+               <div>
+                   <img src="https://c.tenor.com/5o2p0tH5LFQAAAAj/hug.gif" alt="Loading ..."></img>
+                 </div>
+                 : 
+                 <div> 
               <div>
     <center>
 
@@ -127,6 +130,15 @@ export class TableForm extends Component {
 <img src="https://listimg.pinclipart.com/picdir/s/485-4851736_free-png-search-icon-search-icon-free-download.png"></img>
     </center>
 </div>
+
+{ this.state.info.length==0 ?
+  <center>
+    <h3 style={{color:"red"}}>
+    No Information Found
+    </h3>
+    </center>
+:
+
   <table class="table">
   <thead>
     <tr>
@@ -140,7 +152,9 @@ export class TableForm extends Component {
       </div>
     </tr>
   </thead>
+
   <tbody>
+
       {this.state.info.map((info)=>
     <tr>
       <th scope="row">{this.state.sno++}</th>
@@ -155,7 +169,10 @@ export class TableForm extends Component {
     </tr>
     )}
     </tbody>
+    
     </table> 
+    }
+    </div>}    
             </div>
         )
     }
